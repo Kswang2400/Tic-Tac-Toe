@@ -1,0 +1,32 @@
+.board {
+  border: 5px solid black;
+  width: 300px;
+  height: 300px;
+}
+
+.square {
+  background: grey;
+  border: 5px solid black;
+  box-sizing: border-box;
+  height: 100px;
+  width: 100px;
+  font-size: 35px;
+  display: block;
+  float: left;
+}
+
+.square-unopened:hover {
+  background: yellow;
+}
+
+.square-x:after {
+  background: white;
+  content: "x";
+  font-color: blue;
+}
+
+.square-o:after {
+  background: white;
+  content: "o";
+  font-color: purple;
+}
