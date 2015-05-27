@@ -5,7 +5,7 @@
 }
 
 .square {
-  background: grey;
+  background: white;
   border: 5px solid black;
   box-sizing: border-box;
   height: 100px;
@@ -15,17 +15,21 @@
   float: left;
 }
 
+.square-unopened {
+  background: grey;
+}
+
 .square-unopened:hover {
   background: yellow;
 }
 
-.square-x:after {
+.x:after {
   background: white;
   content: "x";
   font-color: blue;
 }
 
-.square-o:after {
+.o:after {
   background: white;
   content: "o";
   font-color: purple;

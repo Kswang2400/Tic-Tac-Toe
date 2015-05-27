@@ -22,7 +22,8 @@
     <script>
       (function () {
         var game = new TTT.Game();
-        new TTT.View(game, $('.board'));
+        var view = new TTT.View(game, $('.board'));
+        view.bindEvents();
       })();
     </script>
   </body>

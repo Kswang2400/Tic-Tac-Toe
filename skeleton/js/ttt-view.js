@@ -10,15 +10,34 @@
   };
 
   View.prototype.bindEvents = function () {
-    // on click
-    $('square-unopened').on('click', function (event) {
-      this.makeMove(event.currentTarget);
-    })
+    var that = this;
+    $('.square').on('click', function (event) {
+      that.makeMove($(event.currentTarget));
+    });
   };
 
   View.prototype.makeMove = function ($square) {
     var id = $square.attr('id');
+    var x  = Math.floor(id / 3);
+    var y  = id % 3;
 
+    try {
+      this.game.playMove([x,y]);
+    }
+    catch (e) {
+      alert(e.msg);
+    }
+
+    $square.addClass(this.game.currentPlayer);
+    $square.removeClass('square-unopened');
+
+    if (this.game.isOver()) {
+      //styling
+      console.log("win")
+      $('.square.o').css('background', 'blue');
+      $('.square').removeClass('square-unopened');
+      $('.square').off('click');
+    }
   };
 
   View.prototype.setupBoard = function () {
