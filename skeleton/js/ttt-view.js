@@ -22,21 +22,25 @@
     var y  = id % 3;
 
     try {
+      $square.addClass(this.game.currentPlayer);
+      $square.removeClass('square-unopened');
       this.game.playMove([x,y]);
     }
     catch (e) {
       alert(e.msg);
     }
-
-    $square.addClass(this.game.currentPlayer);
-    $square.removeClass('square-unopened');
+    // this.game.swapTurn();
+    // $square.addClass(this.game.currentPlayer);
+    // $square.removeClass('square-unopened');
+    // this.game.swapTurn();
 
     if (this.game.isOver()) {
       //styling
-      console.log("win")
-      $('.square.o').css('background', 'blue');
+      $('.square.' + this.game.winner()).addClass("winner");
       $('.square').removeClass('square-unopened');
       $('.square').off('click');
+
+      $('.winning').text(this.game.winner() + " is the winner!").show();
     }
   };
 
